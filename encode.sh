@@ -78,7 +78,7 @@ echo "--- x264 mp4, Second Pass"
 ffmpeg -i $IN \
     -hide_banner -loglevel error -stats \
     -codec:v libx264 -threads 0 -profile:v main -preset slow -b:v 1000k -maxrate 1000k -bufsize 2000k -vf $VF \
-    -codec:a aac -b:a 128k -strict -2\
+    -codec:a libfdk_aac -b:a 128k \
     -pass 2 \
     -f mp4 \
     -y $OUT-h264.mp4
